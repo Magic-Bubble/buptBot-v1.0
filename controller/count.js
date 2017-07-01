@@ -40,6 +40,7 @@ function sendData (session, data) {
 									else { session.send(noanswer); session.endDialog(); }
 								});
 	} else if (data.length == 1) {
+		session.send("1");
 		if (data[0]['desc_1']) {
 			var number = parseInt(data[0]['desc_1']);
 			session.send("<b>总计</b>：" + number);
@@ -51,6 +52,7 @@ function sendData (session, data) {
 		session.endDialog();
 	}
 	else {
+		session.send(1);
 		var text = "<b>总计：</b>" + data.length + "，分别是：";
 		for (var i=0; i<data.length-1; i++) text += data[i].name + "、";
 		text += data[i].name;
