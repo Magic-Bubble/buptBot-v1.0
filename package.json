@@ -1,0 +1,30 @@
+{
+  "name": "bupt-bot",
+  "version": "1.0.0",
+  "description": "ChatBot for BUPT",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Magic-Bubble/buptBot.git"
+  },
+  "keywords": [
+    "ChatBot",
+    "BUPT"
+  ],
+  "author": "Magic Bubble",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Magic-Bubble/buptBot/issues"
+  },
+  "homepage": "https://github.com/Magic-Bubble/buptBot#readme",
+  "dependencies": {
+    "botbuilder": "^3.7.0",
+    "dotenv-extended": "^1.0.4",
+    "request": "^2.79.0",
+    "request-promise": "^4.2.1",
+    "restify": "^4.3.0"
+  }
+}
