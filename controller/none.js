@@ -7,6 +7,8 @@ var noanswer = require('../conf/noanswer');
 
 function startProcess (session, args) {
 	helper.saveQuestion(session);
+	
+	session.send("1");
 
 	var school = parse.getSchool(args),
 		department = parse.getDepartment(args),
