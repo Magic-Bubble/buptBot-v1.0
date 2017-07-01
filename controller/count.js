@@ -45,13 +45,12 @@ function sendData (session, data) {
 			session.send("<b>总计</b>：" + number);
 		}
 		else {
-			var text = helper.createTextFromNode(data);
+			var text = helper.createTextFromNode(data[0]);
 			session.send(text);
 		}
 		session.endDialog();
 	}
 	else {
-		
 		var text = "<b>总计：</b>" + data.length + "，分别是：";
 		for (var i=0; i<data.length-1; i++) text += data[i].name + "、";
 		text += data[i].name;
