@@ -24,7 +24,7 @@ function getNumber (entity, relationships, sendback) {
 }
 
 function get_er (entity, relationships, sendback) {
-    var str = "MATCH (n)-[:";
+    var str = "MATCH (n)-[*0..]->()-[:";
     for (var i=0; i<relationships.length-1; i++) {
         str += relationships[i] + "]->()-[:";
     }
