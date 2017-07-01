@@ -39,7 +39,19 @@ function sendData (session, data) {
 									if (answer) { session.send(answer); session.endDialog(); }
 									else { session.send(noanswer); session.endDialog(); }
 								});
-	} else {
+	} else if (data.length == 1) {
+		if (data[0]['desc_1']) {
+			var number = parseInt(data[0]['desc_1']);
+			session.send("<b>总计</b>：" + number);
+		}
+		else {
+			var text = helper.createTextFromNode(data);
+			session.send(text);
+		}
+		session.endDialog();
+	}
+	else {
+		
 		var text = "<b>总计：</b>" + data.length + "，分别是：";
 		for (var i=0; i<data.length-1; i++) text += data[i].name + "、";
 		text += data[i].name;
