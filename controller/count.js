@@ -53,7 +53,7 @@ function sendData (session, data) {
 		}
 		session.endDialog();
 	} else {
-		session.send(3);
+		session.send("3");
 		var text = "<b>总计：</b>" + data.length + "，分别是：";
 		for (var i=0; i<data.length-1; i++) text += data[i].name + "、";
 		text += data[i].name;
