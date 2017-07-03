@@ -42,8 +42,11 @@ function sendData (session, data) {
 	} else if (data.length == 1) {
 		if (data[0]['desc_1']) {
 			var number = parseInt(data[0]['desc_1']);
-			console.log(number);
-			session.send("<b>总计</b>：" + number);
+                        if (!isNaN(number)) session.send("<b>总计</b>：" + number);
+                        else {
+                            var text = helper.createTextFromNode(data[0]);
+			    session.send(text);
+                        }
 		}
 		else {
 			var text = helper.createTextFromNode(data[0]);
