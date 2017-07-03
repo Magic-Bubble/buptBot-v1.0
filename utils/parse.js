@@ -8,7 +8,20 @@ function getByType (args, type, all=false) {
 	} else {
 		var tmp = [];
 		var tmpEntities = builder.EntityRecognizer.findAllEntities(args.intent.entities, type);
-		if (tmpEntities) for (var i=0; i<tmpEntities.length; i++) tmp.push(tmpEntities[i].resolution.values[0]);
+		if (tmpEntities) {
+			tmpEntities.sort(function (a, b) {
+				return parseInt(a.startIndex) == parseInt(b.startIndex) ? 
+					parseInt(b.endIndex) - parseInt(a.endIndex) : parseInt(a.startIndex) - parseInt(b.startIndex)
+				});
+			var curEnd = 0;
+			for (var i=0; i<tmpEntities.length; i++) {
+				var end = parseInt(tmpEntities[i].endIndex);
+				if (end > curEnd) {
+					tmp.push(tmpEntities[i].resolution.values[0]);
+					curEnd = end;
+				}
+			}
+		}
 	}
 	return tmp;
 }
