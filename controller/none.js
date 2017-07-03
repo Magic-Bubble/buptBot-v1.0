@@ -57,7 +57,7 @@ function sendData (session, data) {
 									else { session.send(noanswer); session.endDialog(); }
 								});
 	} else {
-		if (data.length > 1) session.send("<b>总计：</b>" + data.length + "， 分别是：");
+		//if (data.length > 1) session.send("<b>总计：</b>" + data.length + "， 分别是：");
 		for (var i=0; i<data.length; i++) {
 			if (data[i]['url']) {
 				var heroCard = createHeroCard(session, data[i]);
